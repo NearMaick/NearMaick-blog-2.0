@@ -9,9 +9,12 @@ export const Header: React.FC = () => {
       p="4"
       marginX="12"
       marginY="4"
+      alignItems="center"
       justifyContent="space-between"
     >
-      <Heading as="h1">NearMaick.dev.br</Heading>
+      <Heading as="h1" size="4xl">
+        NearMaick.dev.br
+      </Heading>
       <ColorModeSwitcher />
     </Flex>
   );

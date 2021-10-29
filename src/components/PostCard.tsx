@@ -18,6 +18,7 @@ export const PostCard: React.FC = () => {
       <Image
         src="https://i.ibb.co/KNqMjWF/tim-mossholder-tq8-Cuap8-w-Y-unsplash.jpg"
         alt="teste"
+        borderRadius="md"
       />
       <Flex direction="column" justifyContent="center">
         <Heading as="h2" textAlign="center" size="lg">
