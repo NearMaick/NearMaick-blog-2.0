@@ -1,8 +1,8 @@
-import type { AppProps } from 'next/app'
-import { ChakraProvider, Flex, theme } from '@chakra-ui/react'
-import { Header } from '../components/Header'
+import type { AppProps } from 'next/app';
+import { ChakraProvider, Flex, theme } from '@chakra-ui/react';
+import { Header } from '../components/Header';
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <ChakraProvider theme={theme}>
       <Flex>
@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Flex>
       <Component {...pageProps} />
     </ChakraProvider>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;
