@@ -1,21 +1,14 @@
 import type { NextPage } from 'next';
-import { Flex, Text, Image, Heading } from '@chakra-ui/react';
+import { SimpleGrid } from '@chakra-ui/react';
+import { PostCard } from '../components/PostCard';
 
 const Home: NextPage = () => (
-  <Flex as="main" height="90vh" justifyContent="center" alignItems="center">
-    <Image
-      src="https://i.ibb.co/KNqMjWF/tim-mossholder-tq8-Cuap8-w-Y-unsplash.jpg"
-      alt="teste"
-      w="100"
-      h="200"
-    />
-    <Heading as="h2">Falando sobre testes</Heading>
-    <Text>
-      claro que essa ferramenta não é perfeita e de repente você precisa fazer
-      algumas correções mas ganhei um baita tempo Principalmente quando você for
-      querer fazer um blog tiver codando enquanto tá falando
-    </Text>
-  </Flex>
+  <SimpleGrid minChildWidth="360px" spacingX="1" spacingY="20">
+    <PostCard />
+    <PostCard />
+    <PostCard />
+    <PostCard />
+  </SimpleGrid>
 );
 
 export default Home;
