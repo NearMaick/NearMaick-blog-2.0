@@ -12,7 +12,10 @@ export const Header: React.FC = () => {
       alignItems="center"
       justifyContent="space-between"
     >
-      <Heading as="h1" size="4xl">
+      <Heading
+        as="h1"
+        fontSize={{ base: 'sm', sm: '2xl', md: '3xl', lg: '5xl' }}
+      >
         NearMaick.dev.br
       </Heading>
       <ColorModeSwitcher />
