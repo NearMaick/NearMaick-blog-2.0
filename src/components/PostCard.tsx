@@ -20,8 +20,8 @@ export const PostCard: React.FC = () => {
         alt="teste"
         borderRadius="md"
       />
-      <Flex direction="column" justifyContent="center">
-        <Heading as="h2" textAlign="center" size="lg">
+      <Flex my="4" direction="column" justifyContent="center">
+        <Heading as="h2" textAlign="center" size="lg" mb="4">
           Falando sobre testes
         </Heading>
         <Text textAlign="justify">

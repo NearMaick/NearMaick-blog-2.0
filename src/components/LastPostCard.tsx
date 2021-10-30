@@ -6,7 +6,7 @@ export const LastPostCard: React.FC = () => {
   return (
     <Flex
       as="main"
-      direction="row"
+      direction={{ sm: 'column', md: 'column', lg: 'row' }}
       justifyContent="center"
       alignItems="center"
       marginX="14"
@@ -18,7 +18,7 @@ export const LastPostCard: React.FC = () => {
       <Image
         src="https://i.ibb.co/KNqMjWF/tim-mossholder-tq8-Cuap8-w-Y-unsplash.jpg"
         alt="teste"
-        maxWidth="700px"
+        maxWidth={{ md: '400', lg: '600' }}
         borderRadius="md"
       />
       <Flex h="330" direction="column" justifyContent="space-around" margin="4">
