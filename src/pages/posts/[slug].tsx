@@ -1,9 +1,15 @@
 import { NextPage } from 'next';
+import { useRouter } from 'next/router';
+
 import { Text, Image, Heading, Flex, Box } from '@chakra-ui/react';
 import { FiCalendar, FiUser, FiClock } from 'react-icons/fi';
 import { PostInfo } from '../../components/PostInfo';
 
 const Posts: NextPage = () => {
+  const router = useRouter();
+
+  console.log(router);
+
   return (
     <Box mx="4">
       <Image

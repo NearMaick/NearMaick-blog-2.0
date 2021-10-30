@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { Heading, Flex } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 
@@ -12,12 +14,16 @@ export const Header: React.FC = () => {
       alignItems="center"
       justifyContent="space-between"
     >
-      <Heading
-        as="h1"
-        fontSize={{ base: 'sm', sm: '2xl', md: '3xl', lg: '5xl' }}
-      >
-        NearMaick.dev.br
-      </Heading>
+      <Link href="/">
+        <a>
+          <Heading
+            as="h1"
+            fontSize={{ base: 'sm', sm: '2xl', md: '3xl', lg: '5xl' }}
+          >
+            NearMaick.dev.br
+          </Heading>
+        </a>
+      </Link>
       <ColorModeSwitcher />
     </Flex>
   );
