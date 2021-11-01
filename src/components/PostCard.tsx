@@ -3,17 +3,19 @@ import { Text, Flex, Image, Heading, useColorMode } from '@chakra-ui/react';
 
 type PostProps = {
   uid: string;
-  data: {
-    banner: {
-      url: string;
-      alt: string;
-    };
-    title: { text: string }[];
-    subtitle: { text: string }[];
-  };
+  banner_url: string;
+  banner_alt: string;
+  title: string;
+  subtitle: string;
 };
 
-export function PostCard({ uid, data }: PostProps): JSX.Element {
+export function PostCard({
+  uid,
+  banner_url,
+  banner_alt,
+  title,
+  subtitle,
+}: PostProps): JSX.Element {
   const { colorMode } = useColorMode();
 
   return (
@@ -30,16 +32,12 @@ export function PostCard({ uid, data }: PostProps): JSX.Element {
           borderRadius="md"
           background={colorMode === 'light' ? 'gray.400' : 'gray.700'}
         >
-          <Image
-            src={data.banner.url}
-            alt={data.banner.alt}
-            borderRadius="md"
-          />
+          <Image src={banner_url} alt={banner_alt} borderRadius="md" />
           <Flex my="4" direction="column" justifyContent="center">
             <Heading as="h2" textAlign="center" size="lg" mb="4">
-              {data.title[0].text}
+              {title}
             </Heading>
-            <Text textAlign="justify">{data.subtitle[0].text}</Text>
+            <Text textAlign="justify">{subtitle}</Text>
           </Flex>
         </Flex>
       </a>

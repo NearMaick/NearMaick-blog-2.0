@@ -9,27 +9,16 @@ import { LastPostCard } from '../components/LastPostCard';
 import { getPrismicClient } from '../services/prismic';
 
 type PostsProps = {
-  response: {
-    results: {
-      uid: string;
-      data: {
-        banner: {
-          url: string;
-          alt: string;
-        };
-        title: { text: string }[];
-        subtitle: { text: string }[];
-      };
-    }[];
-  };
+  posts: {
+    uid: string;
+    banner_url: string;
+    banner_alt: string;
+    title: string;
+    subtitle: string;
+  }[];
 };
 
-function Home({ response }: PostsProps): JSX.Element {
-  const [lastPost, setLastPost] = useState({} as PostsProps);
-  const [nextPosts, setNextPosts] = useState<PostsProps[]>([]);
-
-  // console.log(lastPost);
-  // console.log(nextPosts);
+function Home({ posts }: PostsProps): JSX.Element {
   return (
     <>
       <Link href="/posts/banana">
@@ -38,8 +27,15 @@ function Home({ response }: PostsProps): JSX.Element {
         </a>
       </Link>
       <SimpleGrid minChildWidth="360px" spacingX="1" spacingY="14">
-        {response.results.map(post => (
-          <PostCard key={post.uid} uid={post.uid} data={post.data} />
+        {posts.map(post => (
+          <PostCard
+            key={post.uid}
+            uid={post.uid}
+            banner_url={post.banner_url}
+            banner_alt={post.banner_alt}
+            title={post.title}
+            subtitle={post.subtitle}
+          />
         ))}
       </SimpleGrid>
     </>
@@ -55,17 +51,19 @@ export const getStaticProps: GetStaticProps = async () => {
     Prismic.predicates.at('document.type', 'posts'),
   ]);
 
-  // console.log(JSON.stringify(response, null, 2));
-
-  // const nextPosts = response.results.splice(0, 1);
-
-  // const lastPost = response.results.slice(0, 1);
-
-  // console.log(nextPosts);
+  const posts = response.results.map(post => {
+    return {
+      uid: post.uid,
+      banner_url: post.data.banner.url,
+      banner_alt: post.data.banner.alt,
+      title: post.data.title[0].text,
+      subtitle: post.data.subtitle[0].text,
+    };
+  });
 
   return {
     props: {
-      response,
+      posts,
     },
   };
 };
