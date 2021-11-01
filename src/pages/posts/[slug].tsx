@@ -19,6 +19,7 @@ const Posts: NextPage = () => {
         w={1440}
         h={400}
         fit="cover"
+        mx="auto"
         mb="4"
       />
       <Flex
