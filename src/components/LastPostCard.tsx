@@ -6,7 +6,7 @@ export const LastPostCard: React.FC = () => {
   return (
     <Flex
       as="main"
-      direction={{ sm: 'column', md: 'column', lg: 'row' }}
+      direction={{ base: 'column', md: 'column', lg: 'row' }}
       justifyContent="center"
       alignItems="center"
       marginX="14"
