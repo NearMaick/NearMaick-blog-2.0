@@ -1,12 +1,12 @@
 import Link from 'next/link';
 import { Text, Flex, Image, Heading, useColorMode } from '@chakra-ui/react';
 
-type PostProps = {
-  uid: string;
-  banner_url: string;
-  banner_alt: string;
-  title: string;
-  subtitle: string;
+export type PostProps = {
+  uid: string | undefined;
+  banner_url: string | undefined;
+  banner_alt: string | undefined;
+  title: string | undefined;
+  subtitle: string | undefined;
 };
 
 export function PostCard({

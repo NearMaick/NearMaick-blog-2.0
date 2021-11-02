@@ -1,6 +1,4 @@
-import { useState } from 'react';
 import type { GetStaticProps } from 'next';
-import Link from 'next/link';
 import Prismic from '@prismicio/client';
 
 import { SimpleGrid } from '@chakra-ui/react';
@@ -10,7 +8,7 @@ import { getPrismicClient } from '../services/prismic';
 
 type PostsProps = {
   posts: {
-    uid: string;
+    uid: string | undefined;
     banner_url: string;
     banner_alt: string;
     title: string;
@@ -19,15 +17,22 @@ type PostsProps = {
 };
 
 function Home({ posts }: PostsProps): JSX.Element {
+  const nextPosts = [...posts];
+
+  const lastPost = nextPosts.shift();
+
   return (
     <>
-      <Link href="/posts/banana">
-        <a>
-          <LastPostCard />
-        </a>
-      </Link>
+      <LastPostCard
+        uid={lastPost?.uid}
+        banner_url={lastPost?.banner_url}
+        banner_alt={posts[0].banner_alt}
+        title={lastPost?.title}
+        subtitle={lastPost?.subtitle}
+      />
+
       <SimpleGrid minChildWidth="360px" spacingX="1" spacingY="14">
-        {posts.map(post => (
+        {nextPosts.map(post => (
           <PostCard
             key={post.uid}
             uid={post.uid}

@@ -1,36 +1,51 @@
+import Link from 'next/link';
 import { Text, Flex, Image, Heading, useColorMode } from '@chakra-ui/react';
+import { PostProps } from './PostCard';
 
-export const LastPostCard: React.FC = () => {
+export function LastPostCard({
+  uid,
+  banner_url,
+  banner_alt,
+  title,
+  subtitle,
+}: PostProps): JSX.Element {
   const { colorMode } = useColorMode();
 
   return (
-    <Flex
-      as="main"
-      direction={{ base: 'column', md: 'column', lg: 'row' }}
-      justifyContent="center"
-      alignItems="center"
-      marginX="14"
-      marginBottom="14"
-      padding="4"
-      borderRadius="md"
-      background={colorMode === 'light' ? 'gray.400' : 'gray.700'}
-    >
-      <Image
-        src="https://i.ibb.co/KNqMjWF/tim-mossholder-tq8-Cuap8-w-Y-unsplash.jpg"
-        alt="teste"
-        maxWidth={{ md: '400', lg: '600' }}
-        borderRadius="md"
-      />
-      <Flex h="330" direction="column" justifyContent="space-around" margin="4">
-        <Heading as="h2" textAlign="center" size="2xl">
-          Executando teste em React Native
-        </Heading>
-        <Text textAlign="justify" lineHeight="8">
-          claro que essa ferramenta não é perfeita e de repente você precisa
-          fazer algumas correções mas ganhei um baita tempo Principalmente
-          quando você for quere...
-        </Text>
-      </Flex>
-    </Flex>
+    <Link href={`/posts/${uid}`}>
+      <a>
+        <Flex
+          as="main"
+          direction={{ base: 'column', md: 'column', lg: 'row' }}
+          justifyContent="center"
+          alignItems="center"
+          marginX="14"
+          marginBottom="14"
+          padding="4"
+          borderRadius="md"
+          background={colorMode === 'light' ? 'gray.400' : 'gray.700'}
+        >
+          <Image
+            src={banner_url}
+            alt={banner_alt}
+            maxWidth={{ md: '400', lg: '600' }}
+            borderRadius="md"
+          />
+          <Flex
+            h="330"
+            direction="column"
+            justifyContent="space-around"
+            margin="4"
+          >
+            <Heading as="h2" textAlign="center" size="2xl">
+              {title}
+            </Heading>
+            <Text textAlign="justify" lineHeight="8">
+              {subtitle}
+            </Text>
+          </Flex>
+        </Flex>
+      </a>
+    </Link>
   );
-};
+}
