@@ -10,6 +10,7 @@ import { getPrismicClient } from '../../services/prismic'
 type PostsProps = {
   response: {
     uid: string
+    first_publication_date: string
     data: {
       banner: {
         url: string
@@ -23,6 +24,17 @@ type PostsProps = {
 }
 
 function Posts({ response }: PostsProps) {
+  const dateFormatted = new Date(
+    response.first_publication_date
+  ).toLocaleDateString('pt-BR', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  })
+  const estimatedReadTime = Math.ceil(
+    JSON.stringify(response.data.content).split(' ').length / 200
+  )
+
   return (
     <Box mx="4">
       <Image
@@ -46,13 +58,10 @@ function Posts({ response }: PostsProps) {
           {response.data.title[0].text}
         </Heading>
         <Flex as="span" gridGap="8" mb="4">
-          <PostInfo info="15 Mar 2021">
+          <PostInfo info={dateFormatted}>
             <FiCalendar />
           </PostInfo>
-          <PostInfo info="Maick Souza">
-            <FiUser />
-          </PostInfo>
-          <PostInfo info="4 min">
+          <PostInfo info={`${estimatedReadTime} min`}>
             <FiClock />
           </PostInfo>
         </Flex>
