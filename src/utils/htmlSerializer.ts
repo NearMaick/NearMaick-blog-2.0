@@ -29,6 +29,21 @@ export const htmlSerializer = function (
       props = { src: element.url, alt: element.alt || '' }
       return React.createElement('img', propsWithUniqueKey(props, key))
 
+    case Elements.preformatted:
+      // Preformatted
+      props = Object.assign({
+        style: {
+          color: '#C53030',
+          padding: '4rem 0 4rem',
+          'line-height': '2.5rem',
+        },
+      })
+      return React.createElement(
+        'pre',
+        propsWithUniqueKey(props, key),
+        children
+      )
+
     // Add a class to hyperlinks
     case Elements.hyperlink:
       const targetAttr = element.data.target
