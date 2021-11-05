@@ -93,7 +93,9 @@ export const getServerSideProps: GetServerSideProps = async ({
   const response = await prismic.getByUID('posts', String(slug), {})
 
   return {
-    props: { response },
-    revalidate: 60 * 60 * 2,
+    props: {
+      response,
+      revalidate: 60 * 60 * 2,
+    },
   }
 }
