@@ -1,11 +1,12 @@
 import { GetServerSideProps } from 'next'
 
 import { Text, Image, Heading, Flex, Box } from '@chakra-ui/react'
-import { FiCalendar, FiUser, FiClock } from 'react-icons/fi'
+import { FiCalendar, FiClock } from 'react-icons/fi'
 import { RichText, RichTextBlock } from 'prismic-reactjs'
 import { ParsedUrlQuery } from 'querystring'
 import { PostInfo } from '../../components/PostInfo'
 import { getPrismicClient } from '../../services/prismic'
+import { htmlSerializer } from '../../utils/htmlSerializer'
 
 type PostsProps = {
   response: {
@@ -69,7 +70,10 @@ function Posts({ response }: PostsProps) {
           {response.data.subtitle[0].text}
         </Heading>
         <Text as="div" fontSize="lg" textAlign="justify">
-          <RichText render={response.data.content} Component="div" />
+          <RichText
+            render={response.data.content}
+            htmlSerializer={htmlSerializer}
+          />
         </Text>
       </Flex>
     </Box>
