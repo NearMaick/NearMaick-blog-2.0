@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import { Text, Flex, Image, Heading, useColorMode } from '@chakra-ui/react';
-import { PostProps } from './PostCard';
+import Link from 'next/link'
+import { Text, Flex, Image, Heading, useColorMode } from '@chakra-ui/react'
+import { PostProps } from './PostCard'
 
 export function LastPostCard({
   uid,
@@ -8,8 +8,8 @@ export function LastPostCard({
   banner_alt,
   title,
   subtitle,
-}: PostProps): JSX.Element {
-  const { colorMode } = useColorMode();
+}: PostProps) {
+  const { colorMode } = useColorMode()
 
   return (
     <Link href={`/posts/${uid}`}>
@@ -47,5 +47,5 @@ export function LastPostCard({
         </Flex>
       </a>
     </Link>
-  );
+  )
 }

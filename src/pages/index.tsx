@@ -1,25 +1,25 @@
-import type { GetStaticProps } from 'next';
-import Prismic from '@prismicio/client';
+import type { GetStaticProps } from 'next'
+import Prismic from '@prismicio/client'
 
-import { SimpleGrid } from '@chakra-ui/react';
-import { PostCard } from '../components/PostCard';
-import { LastPostCard } from '../components/LastPostCard';
-import { getPrismicClient } from '../services/prismic';
+import { SimpleGrid } from '@chakra-ui/react'
+import { PostCard } from '../components/PostCard'
+import { LastPostCard } from '../components/LastPostCard'
+import { getPrismicClient } from '../services/prismic'
 
 type PostsProps = {
   posts: {
-    uid: string | undefined;
-    banner_url: string;
-    banner_alt: string;
-    title: string;
-    subtitle: string;
-  }[];
-};
+    uid: string | undefined
+    banner_url: string
+    banner_alt: string
+    title: string
+    subtitle: string
+  }[]
+}
 
-function Home({ posts }: PostsProps): JSX.Element {
-  const nextPosts = [...posts];
+function Home({ posts }: PostsProps) {
+  const nextPosts = [...posts]
 
-  const lastPost = nextPosts.shift();
+  const lastPost = nextPosts.shift()
 
   return (
     <>
@@ -44,17 +44,17 @@ function Home({ posts }: PostsProps): JSX.Element {
         ))}
       </SimpleGrid>
     </>
-  );
+  )
 }
 
-export default Home;
+export default Home
 
 export const getStaticProps: GetStaticProps = async () => {
-  const prismic = getPrismicClient();
+  const prismic = getPrismicClient()
 
   const response = await prismic.query([
     Prismic.predicates.at('document.type', 'posts'),
-  ]);
+  ])
 
   const posts = response.results.map(post => {
     return {
@@ -63,12 +63,12 @@ export const getStaticProps: GetStaticProps = async () => {
       banner_alt: post.data.banner.alt,
       title: post.data.title[0].text,
       subtitle: post.data.subtitle[0].text,
-    };
-  });
+    }
+  })
 
   return {
     props: {
       posts,
     },
-  };
-};
+  }
+}

@@ -1,28 +1,28 @@
-import { GetServerSideProps } from 'next';
+import { GetServerSideProps } from 'next'
 
-import { Text, Image, Heading, Flex, Box } from '@chakra-ui/react';
-import { FiCalendar, FiUser, FiClock } from 'react-icons/fi';
-import { RichText, RichTextBlock } from 'prismic-reactjs';
-import { ParsedUrlQuery } from 'querystring';
-import { PostInfo } from '../../components/PostInfo';
-import { getPrismicClient } from '../../services/prismic';
+import { Text, Image, Heading, Flex, Box } from '@chakra-ui/react'
+import { FiCalendar, FiUser, FiClock } from 'react-icons/fi'
+import { RichText, RichTextBlock } from 'prismic-reactjs'
+import { ParsedUrlQuery } from 'querystring'
+import { PostInfo } from '../../components/PostInfo'
+import { getPrismicClient } from '../../services/prismic'
 
 type PostsProps = {
   response: {
-    uid: string;
+    uid: string
     data: {
       banner: {
-        url: string;
-        alt: string;
-      };
-      title: { text: string }[];
-      subtitle: { text: string }[];
-      content: RichTextBlock[];
-    };
-  };
-};
+        url: string
+        alt: string
+      }
+      title: { text: string }[]
+      subtitle: { text: string }[]
+      content: RichTextBlock[]
+    }
+  }
+}
 
-function Posts({ response }: PostsProps): JSX.Element {
+function Posts({ response }: PostsProps) {
   return (
     <Box mx="4">
       <Image
@@ -64,22 +64,22 @@ function Posts({ response }: PostsProps): JSX.Element {
         </Text>
       </Flex>
     </Box>
-  );
+  )
 }
 
-export default Posts;
+export default Posts
 
 export const getServerSideProps: GetServerSideProps = async ({
   req,
   params,
 }) => {
-  const { slug } = params as ParsedUrlQuery;
+  const { slug } = params as ParsedUrlQuery
 
-  const prismic = getPrismicClient(req);
+  const prismic = getPrismicClient(req)
 
-  const response = await prismic.getByUID('posts', String(slug), {});
+  const response = await prismic.getByUID('posts', String(slug), {})
 
   return {
     props: { response },
-  };
-};
+  }
+}

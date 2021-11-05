@@ -1,13 +1,13 @@
-import Link from 'next/link';
-import { Text, Flex, Image, Heading, useColorMode } from '@chakra-ui/react';
+import Link from 'next/link'
+import { Text, Flex, Image, Heading, useColorMode } from '@chakra-ui/react'
 
 export type PostProps = {
-  uid: string | undefined;
-  banner_url: string | undefined;
-  banner_alt: string | undefined;
-  title: string | undefined;
-  subtitle: string | undefined;
-};
+  uid: string | undefined
+  banner_url: string | undefined
+  banner_alt: string | undefined
+  title: string | undefined
+  subtitle: string | undefined
+}
 
 export function PostCard({
   uid,
@@ -15,8 +15,8 @@ export function PostCard({
   banner_alt,
   title,
   subtitle,
-}: PostProps): JSX.Element {
-  const { colorMode } = useColorMode();
+}: PostProps) {
+  const { colorMode } = useColorMode()
 
   return (
     <Link href={`/posts/${uid}`}>
@@ -42,5 +42,5 @@ export function PostCard({
         </Flex>
       </a>
     </Link>
-  );
+  )
 }

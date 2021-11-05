@@ -1,12 +1,12 @@
-import { ReactNode } from 'react';
-import { Text, Flex } from '@chakra-ui/react';
+import { ReactNode } from 'react'
+import { Text, Flex } from '@chakra-ui/react'
 
 type InfoProps = {
-  children?: ReactNode;
-  info: string;
-};
+  children?: ReactNode
+  info: string
+}
 
-export function PostInfo({ children, info }: InfoProps): JSX.Element {
+export function PostInfo({ children, info }: InfoProps) {
   return (
     <Flex flexDirection="row" alignItems="center">
       {children}
@@ -14,5 +14,5 @@ export function PostInfo({ children, info }: InfoProps): JSX.Element {
         {info}
       </Text>
     </Flex>
-  );
+  )
 }
