@@ -1,4 +1,4 @@
-import { GetServerSideProps } from 'next'
+import { GetServerSideProps, GetStaticPaths, GetStaticProps } from 'next'
 
 import { Text, Image, Heading, Flex, Box } from '@chakra-ui/react'
 import { FiCalendar, FiClock } from 'react-icons/fi'
@@ -24,7 +24,7 @@ type PostsProps = {
   }
 }
 
-function Posts({ response }: PostsProps) {
+export default function Posts({ response }: PostsProps) {
   const dateFormatted = new Date(
     response.first_publication_date
   ).toLocaleDateString('pt-BR', {
@@ -80,22 +80,24 @@ function Posts({ response }: PostsProps) {
   )
 }
 
-export default Posts
+export const getStaticPaths: GetStaticPaths = async () => {
+  return {
+    paths: [],
+    fallback: 'blocking',
+  }
+}
 
-export const getServerSideProps: GetServerSideProps = async ({
-  req,
-  params,
-}) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slug } = params as ParsedUrlQuery
 
-  const prismic = getPrismicClient(req)
+  const prismic = getPrismicClient()
 
   const response = await prismic.getByUID('posts', String(slug), {})
 
   return {
     props: {
       response,
-      revalidate: 60 * 60 * 2,
     },
+    revalidate: 60 * 60 * 2, //2 hours
   }
 }
