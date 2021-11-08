@@ -12,7 +12,7 @@ export function LastPostCard({
   const { colorMode } = useColorMode()
 
   return (
-    <Link href={`/posts/${uid}`}>
+    <Link href={uid ? `/posts/${uid}` : '/blog'}>
       <a>
         <Flex
           as="main"
