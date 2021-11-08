@@ -1,4 +1,4 @@
-import { GetServerSideProps, GetStaticPaths, GetStaticProps } from 'next'
+import { GetStaticPaths, GetStaticProps } from 'next'
 
 import { Text, Image, Heading, Flex, Box } from '@chakra-ui/react'
 import { FiCalendar, FiClock } from 'react-icons/fi'
