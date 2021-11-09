@@ -1,9 +1,9 @@
-import type { GetStaticProps } from 'next'
-import Prismic from '@prismicio/client'
-
 import { SimpleGrid } from '@chakra-ui/react'
-import { PostCard } from '../components/PostCard'
+import Prismic from '@prismicio/client'
+import type { GetStaticProps } from 'next'
+
 import { LastPostCard } from '../components/LastPostCard'
+import { PostCard } from '../components/PostCard'
 import { getPrismicClient } from '../services/prismic'
 import { PostsProps } from '../types/PostTypes'
 

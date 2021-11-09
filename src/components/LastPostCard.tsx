@@ -1,5 +1,6 @@
-import Link from 'next/link'
 import { Text, Flex, Image, Heading, useColorMode } from '@chakra-ui/react'
+import Link from 'next/link'
+
 import { PostProps } from '../types/PostTypes'
 
 export function LastPostCard({
