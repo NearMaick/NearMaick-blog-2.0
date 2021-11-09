@@ -7,16 +7,7 @@ import { GoalsCard } from '../components/HomeBody/GoalsCard'
 import { WelcomeCard } from '../components/HomeBody/WelcomeCard'
 import { LastPostCard } from '../components/LastPostCard'
 import { getPrismicClient } from '../services/prismic'
-
-type PostsProps = {
-  posts: {
-    uid: string | undefined
-    banner_url: string
-    banner_alt: string
-    title: string
-    subtitle: string
-  }[]
-}
+import { PostsProps } from '../types/PostTypes'
 
 export default function Home({ posts }: PostsProps) {
   const nextPosts = [...posts]

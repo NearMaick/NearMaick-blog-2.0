@@ -1,30 +1,15 @@
-import { GetStaticPaths, GetStaticProps } from 'next'
-
 import { Text, Image, Heading, Flex, Box } from '@chakra-ui/react'
-import { FiCalendar, FiClock } from 'react-icons/fi'
-import { RichText, RichTextBlock } from 'prismic-reactjs'
+import { GetStaticPaths, GetStaticProps } from 'next'
+import { RichText } from 'prismic-reactjs'
 import { ParsedUrlQuery } from 'querystring'
+import { FiCalendar, FiClock } from 'react-icons/fi'
+
 import { PostInfo } from '../../components/PostInfo'
 import { getPrismicClient } from '../../services/prismic'
+import { PrismicPostsProps } from '../../types/PostTypes'
 import { htmlSerializer } from '../../utils/htmlSerializer'
 
-type PostsProps = {
-  response: {
-    uid: string
-    first_publication_date: string
-    data: {
-      banner: {
-        url: string
-        alt: string
-      }
-      title: { text: string }[]
-      subtitle: { text: string }[]
-      content: RichTextBlock[]
-    }
-  }
-}
-
-export default function Posts({ response }: PostsProps) {
+export default function Posts({ response }: PrismicPostsProps) {
   const dateFormatted = new Date(
     response.first_publication_date
   ).toLocaleDateString('pt-BR', {
