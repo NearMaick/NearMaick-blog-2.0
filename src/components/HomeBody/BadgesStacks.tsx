@@ -1,6 +1,7 @@
-import { DiDart, DiErlang, DiNodejs, DiReact } from 'react-icons/di'
+import { DiNodejs, DiReact } from 'react-icons/di'
 
 import { Badge, Box, Flex, Image, Heading, Text } from '@chakra-ui/react'
+import { stacksBadges } from '../../utils/badgesStacks'
 
 export function BadgeStacks() {
   return (
@@ -9,29 +10,36 @@ export function BadgeStacks() {
         <Heading textAlign="center">
           Tecnologias que utilizo no momento...
         </Heading>
-        <Flex justifyContent="space-around">
-          <Badge>
+        <Flex justifyContent="center">
+          <Badge
+            display="flex"
+            flexDirection="column"
+            mx="8"
+            alignItems="center"
+            justifyContent="center"
+          >
             <DiNodejs size={60} />
             <Text>NodeJS</Text>
           </Badge>
-          <Badge>
+          <Badge
+            display="flex"
+            flexDirection="column"
+            mx="8"
+            alignItems="center"
+            justifyContent="center"
+          >
             <DiReact size={60} />
             <Text>ReactJS</Text>
           </Badge>
-        </Flex>
-        <Heading textAlign="center">O que estou aprendendo?</Heading>
-        <Flex justifyContent="space-around">
-          <Badge>
+          <Badge
+            display="flex"
+            flexDirection="column"
+            mx="8"
+            alignItems="center"
+            justifyContent="center"
+          >
             <DiReact size={60} />
             <Text>React Native</Text>
-          </Badge>
-          <Badge>
-            <DiErlang size={60} />
-            <Text>Elixir</Text>
-          </Badge>
-          <Badge>
-            <DiDart size={60} />
-            <Text>Flutter</Text>
           </Badge>
         </Flex>
       </Box>
@@ -40,14 +48,9 @@ export function BadgeStacks() {
           Outras Tecnologias que estou utilizando ao longo da minha jornada...
         </Heading>
         <Flex justifyContent="space-around">
-          <Image
-            src="https://img.shields.io/badge/chakra-%234ED1C5.svg?style=for-the-badge&logo=chakraui&logoColor=white"
-            alt="Chakra"
-          />
-          <Image
-            src="https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white"
-            alt="Next JS"
-          />
+          {stacksBadges.map(stack => (
+            <Image key={stack.alt} src={stack.src} alt={stack.alt} />
+          ))}
         </Flex>
       </Box>
     </>
