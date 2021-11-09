@@ -1,5 +1,5 @@
-import { ReactNode } from 'react'
 import { Text, Flex } from '@chakra-ui/react'
+import { ReactNode } from 'react'
 
 type InfoProps = {
   children?: ReactNode

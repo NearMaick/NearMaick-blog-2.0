@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import { Text, Flex, Image, Heading, useColorMode } from '@chakra-ui/react'
+import Link from 'next/link'
 
 export type PostProps = {
   uid?: string | undefined

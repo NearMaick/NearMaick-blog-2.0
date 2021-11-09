@@ -23,12 +23,21 @@
     "plugins": [
         "react",
         "react-hooks",
+        "eslint-plugin-import-helpers",
         "prettier"
     ],
     "rules": {
         "space-before-function-paren": "off",
         "comma-dangle": "off",
         "prettier/prettier": "error",
-        "no-unused-vars": "warn"
+        "no-unused-vars": "warn",
+        "import-helpers/order-imports": [
+            "warn",
+            {
+            "newlinesBetween": "always",
+            "groups": ["module", "/^@shared/", ["parent", "sibling", "index"]],
+            "alphabetize": { "order": "asc", "ignoreCase": true }
+            }
+        ]
     }
 }

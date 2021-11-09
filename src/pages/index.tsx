@@ -1,11 +1,12 @@
 import { Box, Flex, Image, Heading } from '@chakra-ui/react'
-import { GetStaticProps } from 'next'
-import { getPrismicClient } from '../services/prismic'
 import Prismic from '@prismicio/client'
-import { LastPostCard } from '../components/LastPostCard'
-import { WelcomeCard } from '../components/HomeBody/WelcomeCard'
-import { GoalsCard } from '../components/HomeBody/GoalsCard'
+import { GetStaticProps } from 'next'
+
 import { BadgeStacks } from '../components/HomeBody/BadgesStacks'
+import { GoalsCard } from '../components/HomeBody/GoalsCard'
+import { WelcomeCard } from '../components/HomeBody/WelcomeCard'
+import { LastPostCard } from '../components/LastPostCard'
+import { getPrismicClient } from '../services/prismic'
 
 type PostsProps = {
   posts: {

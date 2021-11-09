@@ -1,6 +1,6 @@
+import { Heading, Flex } from '@chakra-ui/react'
 import Link from 'next/link'
 
-import { Heading, Flex } from '@chakra-ui/react'
 import { ColorModeSwitcher } from './ColorModeSwitcher'
 
 export const Header = () => {

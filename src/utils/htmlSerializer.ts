@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-case-declarations */
-import React from 'react'
 import { Elements } from 'prismic-reactjs'
+import React from 'react'
 
 // -- Function to add unique key to props
 const propsWithUniqueKey = function (props: {}, key: any) {
