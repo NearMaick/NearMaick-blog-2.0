@@ -1,5 +1,3 @@
-import { DiNodejs, DiReact } from 'react-icons/di'
-
 import {
   Badge,
   Box,
@@ -9,6 +7,8 @@ import {
   SimpleGrid,
   Text,
 } from '@chakra-ui/react'
+import { DiNodejs, DiReact } from 'react-icons/di'
+
 import { stacksBadges } from '../../utils/badgesStacks'
 
 export function BadgeStacks() {

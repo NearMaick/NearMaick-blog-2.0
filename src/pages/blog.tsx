@@ -5,16 +5,7 @@ import type { GetStaticProps } from 'next'
 import { LastPostCard } from '../components/LastPostCard'
 import { PostCard } from '../components/PostCard'
 import { getPrismicClient } from '../services/prismic'
-
-type PostsProps = {
-  posts: {
-    uid: string | undefined
-    banner_url: string
-    banner_alt: string
-    title: string
-    subtitle: string
-  }[]
-}
+import { PostsProps } from '../types/PostTypes'
 
 export default function Blog({ posts }: PostsProps) {
   const nextPosts = [...posts]
