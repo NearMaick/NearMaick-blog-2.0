@@ -53,7 +53,7 @@ export default function Home({ posts }: PostsProps) {
           <Heading fontSize="4xl" marginBottom="8">
             Olá, sou o NearMaick
           </Heading>
-          <Text>
+          <Text fontSize="xl">
             Sou uma pessoa que vivo em constante aprendizado. Sempre gostei de
             profissões relacionadas a tecnologia, mas ganhei muito gosto ná área
             de desenvolvimento de software. Concluí recentemente o curso GoStack
@@ -76,13 +76,20 @@ export default function Home({ posts }: PostsProps) {
           margin="auto"
         />
       </Flex>
-      <Box>
-        <Heading>Quais os meus objetivos?</Heading>
-        <Text>
+      <Box
+        margin="8"
+        padding="4"
+        background={colorMode === 'light' ? 'white' : 'gray.700'}
+        borderRadius="base"
+      >
+        <Heading textAlign="center" mb="4">
+          Quais os meus objetivos?
+        </Heading>
+        <Text fontSize="2xl" textAlign="center">
           Ser um profissional que possa somar em uma equipe, bem como aprender
           novas maneiras, práticas e eficientes de resolver problemas referentes
-          a implementação de tecnologias quefacilite, no contexto geral, quem as
-          utilizam.
+          a implementação de tecnologias que facilite, no contexto geral, quem
+          as utilizam.
         </Text>
       </Box>
 
