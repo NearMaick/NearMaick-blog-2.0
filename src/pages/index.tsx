@@ -42,7 +42,7 @@ export default function Home({ posts }: PostsProps) {
       <BadgeStacks />
 
       <Box>
-        <Heading>Ultimo post do blog</Heading>
+        <Heading textAlign="center">Ultimo post do blog</Heading>
 
         <LastPostCard
           banner_url={lastPost?.banner_url}
