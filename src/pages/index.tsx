@@ -6,16 +6,7 @@ import { LastPostCard } from '../components/LastPostCard'
 import { WelcomeCard } from '../components/HomeBody/WelcomeCard'
 import { GoalsCard } from '../components/HomeBody/GoalsCard'
 import { BadgeStacks } from '../components/HomeBody/BadgesStacks'
-
-type PostsProps = {
-  posts: {
-    uid: string | undefined
-    banner_url: string
-    banner_alt: string
-    title: string
-    subtitle: string
-  }[]
-}
+import { PostsProps } from '../types/PostTypes'
 
 export default function Home({ posts }: PostsProps) {
   const nextPosts = [...posts]
