@@ -23,9 +23,9 @@ export function WelcomeCard() {
       </Heading>
       <Text fontSize="xl">
         Sou uma pessoa que vivo em constante aprendizado. Sempre gostei de
-        profissões relacionadas a tecnologia, mas ganhei muito gosto ná área de
+        profissões relacionadas a tecnologia, mas ganhei muito gosto na área de
         desenvolvimento de software. Concluí recentemente o curso GoStack da
-        Rocketseat, fou formado em Sistemas de Informação, mas sempre
+        Rocketseat, sou formado em Sistemas de Informação, mas sempre
         acompanhando novos conteúdos para me manter atualizado. Tenho interesse
         em trabalhar com construções de aplicações com tecnologias relacionadas
         ao ecossistema JavaScript | Node | React | React Native, pois essas
