@@ -1,10 +1,11 @@
-import type { GetStaticProps } from 'next'
-import Prismic from '@prismicio/client'
-
-import { SimpleGrid } from '@chakra-ui/react'
-import { PostCard } from '../components/PostCard'
-import { LastPostCard } from '../components/LastPostCard'
+import { Box, Flex, Image, Heading } from '@chakra-ui/react'
+import { GetStaticProps } from 'next'
 import { getPrismicClient } from '../services/prismic'
+import Prismic from '@prismicio/client'
+import { LastPostCard } from '../components/LastPostCard'
+import { WelcomeCard } from '../components/HomeBody/WelcomeCard'
+import { GoalsCard } from '../components/HomeBody/GoalsCard'
+import { BadgeStacks } from '../components/HomeBody/BadgesStacks'
 
 type PostsProps = {
   posts: {
@@ -16,38 +17,45 @@ type PostsProps = {
   }[]
 }
 
-function Home({ posts }: PostsProps) {
+export default function Home({ posts }: PostsProps) {
   const nextPosts = [...posts]
 
   const lastPost = nextPosts.shift()
 
   return (
-    <>
-      <LastPostCard
-        uid={lastPost?.uid}
-        banner_url={lastPost?.banner_url}
-        banner_alt={posts[0].banner_alt}
-        title={lastPost?.title}
-        subtitle={lastPost?.subtitle}
-      />
+    <Box>
+      <Flex
+        direction={{ base: 'column-reverse', md: 'column-reverse', lg: 'row' }}
+        marginX="auto"
+      >
+        <WelcomeCard />
+        <Image
+          src="https://github.com/nearmaick.png"
+          alt="NearMaick"
+          boxSize={700}
+          objectFit="contain"
+          borderRadius="base"
+          margin="auto"
+        />
+      </Flex>
+      <GoalsCard />
+      <BadgeStacks />
 
-      <SimpleGrid minChildWidth="360px" spacingX="1" spacingY="14">
-        {nextPosts.map(post => (
-          <PostCard
-            key={post.uid}
-            uid={post.uid}
-            banner_url={post.banner_url}
-            banner_alt={post.banner_alt}
-            title={post.title}
-            subtitle={post.subtitle}
-          />
-        ))}
-      </SimpleGrid>
-    </>
+      <Box>
+        <Heading my="8" textAlign="center">
+          Ultimo post do blog
+        </Heading>
+
+        <LastPostCard
+          banner_url={lastPost?.banner_url}
+          banner_alt={posts[0].banner_alt}
+          title={lastPost?.title}
+          subtitle={lastPost?.subtitle}
+        />
+      </Box>
+    </Box>
   )
 }
-
-export default Home
 
 export const getStaticProps: GetStaticProps = async () => {
   const prismic = getPrismicClient()
