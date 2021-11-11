@@ -1,6 +1,8 @@
-import { Box, Flex, Image, Heading } from '@chakra-ui/react'
+import { Box, Heading, chakra, HTMLChakraProps } from '@chakra-ui/react'
 import Prismic from '@prismicio/client'
+import { motion, HTMLMotionProps } from 'framer-motion'
 import { GetStaticProps } from 'next'
+import React from 'react'
 
 import { BadgeStacks } from '../components/HomeBody/BadgesStacks'
 import { GoalsCard } from '../components/HomeBody/GoalsCard'
@@ -9,6 +11,11 @@ import { LastPostCard } from '../components/LastPostCard'
 import { getPrismicClient } from '../services/prismic'
 import { PostsProps } from '../types/PostTypes'
 
+type Merge<P, T> = Omit<P, keyof T> & T
+
+type MotionImageProps = Merge<HTMLChakraProps<'img'>, HTMLMotionProps<'img'>>
+export const MotionImage: React.FC<MotionImageProps> = motion(chakra.img)
+
 export default function Home({ posts }: PostsProps) {
   const nextPosts = [...posts]
 
@@ -16,20 +23,17 @@ export default function Home({ posts }: PostsProps) {
 
   return (
     <Box>
-      <Flex
-        direction={{ base: 'column-reverse', md: 'column-reverse', lg: 'row' }}
-        marginX="auto"
-      >
+      <Box position="relative" marginX="4">
         <WelcomeCard />
-        <Image
-          src="https://github.com/nearmaick.png"
+        <MotionImage
+          animate={{ opacity: [0, 0, 1, 1] }}
+          transition={{ ease: 'easeOut', duration: 2 }}
+          src="https://images.prismic.io/nearmaickdev/20b0bfd6-a75f-40c6-a2fa-00bff4ea554a_juanjo-jaramillo-mZnx9429i94-unsplash.jpg?auto=compress,format"
           alt="NearMaick"
-          boxSize={700}
-          objectFit="contain"
+          objectFit="cover"
           borderRadius="base"
-          margin="auto"
         />
-      </Flex>
+      </Box>
       <GoalsCard />
       <BadgeStacks />
 
