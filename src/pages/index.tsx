@@ -27,7 +27,7 @@ export default function Home({ posts }: PostsProps) {
         <WelcomeCard />
         <MotionImage
           animate={{ opacity: [0, 0, 1, 1] }}
-          transition={{ ease: 'easeOut', duration: 2, repeat: Infinity }}
+          transition={{ ease: 'easeOut', duration: 2 }}
           src="https://images.prismic.io/nearmaickdev/20b0bfd6-a75f-40c6-a2fa-00bff4ea554a_juanjo-jaramillo-mZnx9429i94-unsplash.jpg?auto=compress,format"
           alt="NearMaick"
           objectFit="cover"

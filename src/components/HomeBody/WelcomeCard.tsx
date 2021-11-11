@@ -19,7 +19,7 @@ export function WelcomeCard() {
   return (
     <MotionFlex
       animate={{ y: 16, opacity: [0, 0, 0, 1] }}
-      transition={{ ease: 'easeOut', duration: 2, repeat: Infinity }}
+      transition={{ ease: 'easeOut', duration: 2 }}
       position="absolute"
       visibility={{ base: 'hidden', sm: 'visible' }}
       top={{ base: '4', md: '8', lg: '24', xl: '64' }}
