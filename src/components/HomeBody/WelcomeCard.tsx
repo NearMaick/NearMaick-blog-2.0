@@ -5,23 +5,30 @@ export function WelcomeCard() {
 
   return (
     <Flex
+      position="absolute"
+      visibility={{ base: 'hidden', sm: 'visible' }}
+      top={{ base: '4', md: '8', lg: '24', xl: '64' }}
+      left={{ base: '8', md: '24', lg: '56', xl: '96' }}
+      w={{ base: 400, md: 600, lg: 700, xl: 820 }}
+      h={{ base: 280, md: 400, lg: 480, xl: 560 }}
+      zIndex="9"
       flexDirection="column"
       justifyContent="center"
-      w="container.sm"
-      h="lg"
-      marginY={{ base: 0, md: 0, lg: 'auto' }}
-      marginRight={{ base: 'auto', md: 'auto', lg: -100 }}
-      marginLeft={{ base: 'auto', md: 'auto', lg: '4' }}
-      marginTop={{ base: -100, md: -100, lg: 'auto' }}
       paddingX="4"
-      zIndex="9"
       background={colorMode === 'light' ? 'white' : 'gray.700'}
       borderRadius="base"
     >
-      <Heading fontSize="4xl" marginBottom="8">
+      <Heading
+        fontSize={{ base: 'sm', md: 'xl', lg: '2xl', xl: '4xl' }}
+        marginBottom="8"
+        textAlign="center"
+      >
         Olá, sou o NearMaick
       </Heading>
-      <Text fontSize="xl">
+      <Text
+        fontSize={{ base: '12', md: 'md', lg: 'lg', xl: '2xl' }}
+        textAlign="justify"
+      >
         Sou uma pessoa que vivo em constante aprendizado. Sempre gostei de
         profissões relacionadas a tecnologia, mas ganhei muito gosto na área de
         desenvolvimento de software. Concluí recentemente o curso GoStack da

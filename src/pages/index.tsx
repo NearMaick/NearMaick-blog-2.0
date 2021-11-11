@@ -16,20 +16,15 @@ export default function Home({ posts }: PostsProps) {
 
   return (
     <Box>
-      <Flex
-        direction={{ base: 'column-reverse', md: 'column-reverse', lg: 'row' }}
-        marginX="auto"
-      >
+      <Box position="relative" marginX="4">
         <WelcomeCard />
         <Image
-          src="https://github.com/nearmaick.png"
+          src="https://images.prismic.io/nearmaickdev/20b0bfd6-a75f-40c6-a2fa-00bff4ea554a_juanjo-jaramillo-mZnx9429i94-unsplash.jpg?auto=compress,format"
           alt="NearMaick"
-          boxSize={700}
-          objectFit="contain"
+          objectFit="cover"
           borderRadius="base"
-          margin="auto"
         />
-      </Flex>
+      </Box>
       <GoalsCard />
       <BadgeStacks />
 
