@@ -1,4 +1,4 @@
-import { Box, Image, Heading, chakra, HTMLChakraProps } from '@chakra-ui/react'
+import { Box, Heading, chakra, HTMLChakraProps } from '@chakra-ui/react'
 import Prismic from '@prismicio/client'
 import { motion, HTMLMotionProps } from 'framer-motion'
 import { GetStaticProps } from 'next'

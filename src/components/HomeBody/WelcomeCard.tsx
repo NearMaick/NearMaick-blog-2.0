@@ -10,14 +10,14 @@ import React from 'react'
 
 type Merge<P, T> = Omit<P, keyof T> & T
 
-type MotionFlexProps = Merge<HTMLChakraProps<'div'>, HTMLMotionProps<'div'>>
-export const MotionFlex: React.FC<MotionFlexProps> = motion(chakra.div)
+type MotionBoxProps = Merge<HTMLChakraProps<'div'>, HTMLMotionProps<'div'>>
+export const MotionBox: React.FC<MotionBoxProps> = motion(chakra.div)
 
 export function WelcomeCard() {
   const { colorMode } = useColorMode()
 
   return (
-    <MotionFlex
+    <MotionBox
       animate={{ y: 16, opacity: [0, 0, 0, 1] }}
       transition={{ ease: 'easeOut', duration: 2 }}
       position="absolute"
@@ -56,6 +56,6 @@ export function WelcomeCard() {
         sempre busco as ferramentas quem fazem sentido ao problema apresentado.
         Sou uma pessoa proativa e com espírito colaborador e empreendedor.
       </Text>
-    </MotionFlex>
+    </MotionBox>
   )
 }
