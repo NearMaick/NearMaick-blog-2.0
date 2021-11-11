@@ -1,10 +1,25 @@
-import { Flex, Heading, Text, useColorMode } from '@chakra-ui/react'
+import {
+  Heading,
+  Text,
+  useColorMode,
+  chakra,
+  HTMLChakraProps,
+} from '@chakra-ui/react'
+import { motion, HTMLMotionProps } from 'framer-motion'
+import React from 'react'
+
+type Merge<P, T> = Omit<P, keyof T> & T
+
+type MotionFlexProps = Merge<HTMLChakraProps<'div'>, HTMLMotionProps<'div'>>
+export const MotionFlex: React.FC<MotionFlexProps> = motion(chakra.div)
 
 export function WelcomeCard() {
   const { colorMode } = useColorMode()
 
   return (
-    <Flex
+    <MotionFlex
+      animate={{ y: 16, opacity: [0, 0, 0, 1] }}
+      transition={{ ease: 'easeOut', duration: 2, repeat: Infinity }}
       position="absolute"
       visibility={{ base: 'hidden', sm: 'visible' }}
       top={{ base: '4', md: '8', lg: '24', xl: '64' }}
@@ -12,6 +27,7 @@ export function WelcomeCard() {
       w={{ base: 400, md: 600, lg: 700, xl: 820 }}
       h={{ base: 280, md: 400, lg: 480, xl: 560 }}
       zIndex="9"
+      display="flex"
       flexDirection="column"
       justifyContent="center"
       paddingX="4"
@@ -40,6 +56,6 @@ export function WelcomeCard() {
         sempre busco as ferramentas quem fazem sentido ao problema apresentado.
         Sou uma pessoa proativa e com espírito colaborador e empreendedor.
       </Text>
-    </Flex>
+    </MotionFlex>
   )
 }
