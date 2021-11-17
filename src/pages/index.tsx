@@ -23,7 +23,11 @@ export default function Home({ posts }: PostsProps) {
 
   return (
     <Box>
-      <Box position="relative" marginX="4">
+      <Box
+        position="relative"
+        marginX="4"
+        h={{ base: 300, sm: 450, md: 600, lg: 800, xl: 1200 }}
+      >
         <WelcomeCard />
         <MotionImage
           animate={{ opacity: [0, 0, 1, 1] }}
